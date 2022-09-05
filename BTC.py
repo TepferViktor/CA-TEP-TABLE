@@ -59,7 +59,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C3'] = pr['price']
+        sheet['C3'] = float(pr['price'])
         
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -71,7 +71,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I3'] = pr['price']
+        sheet['I3'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -117,7 +117,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C4'] = pr['price']
+        sheet['C4'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -129,7 +129,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I4'] = pr['price']
+        sheet['I4'] = float(pr['price'])
     book.save("binance.xlsx")
 ########################################################################################################
     """QIWI USDT"""
@@ -174,7 +174,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C5'] = pr['price']
+        sheet['C5'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -186,7 +186,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I5'] = pr['price']
+        sheet['I5'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -233,7 +233,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C6'] = pr['price']
+        sheet['C6'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -245,7 +245,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I6'] = pr['price']
+        sheet['I6'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -291,7 +291,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C7'] = pr['price']
+        sheet['C7'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -303,7 +303,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I7'] = pr['price']
+        sheet['I7'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -349,7 +349,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['c8'] = pr['price']
+        sheet['c8'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -361,7 +361,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I8'] = pr['price']
+        sheet['I8'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -408,7 +408,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C9'] = pr['price']
+        sheet['C9'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -420,7 +420,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I9'] = pr['price']
+        sheet['I9'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -468,7 +468,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C10'] = pr['price']
+        sheet['C10'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -480,7 +480,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I10'] = pr['price']
+        sheet['I10'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -527,7 +527,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C12'] = pr['price']
+        sheet['C12'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -539,7 +539,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I12'] = pr['price']
+        sheet['I12'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -585,7 +585,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C13'] = pr['price']
+        sheet['C13'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -597,7 +597,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I13'] = pr['price']
+        sheet['I13'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -643,7 +643,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['C14'] = pr['price']
+        sheet['C14'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -655,7 +655,7 @@ def parse_BTC():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['I14'] = pr['price']
+        sheet['I14'] = float(pr['price'])
 
     book.save("binance.xlsx")
     book.close()

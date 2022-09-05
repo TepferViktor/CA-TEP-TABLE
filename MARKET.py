@@ -35,8 +35,8 @@ def market_parse():
 
 
     print(f"buy:{jsData['price']} rub")
-    sheet['C21'] = jsData['price']
-    sheet['B22'] = jsData['price']
+    sheet['C21'] = float(jsData['price'])
+    sheet['B22'] = float(jsData['price'])
 #######################BUSDUSDT#####################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(busd_usdt.json(), outfile)
@@ -44,8 +44,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['D21'] = jsData['price']
-    sheet['B23'] = jsData['price']
+    sheet['D21'] = float(jsData['price'])
+    sheet['B23'] =float(jsData['price'])
 #######################BTCBUSD##############################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(btc_usdt.json(), outfile)
@@ -53,8 +53,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['D22'] = jsData['price']
-    sheet['C23'] = jsData['price']
+    sheet['D22'] = float(jsData['price'])
+    sheet['C23'] =float(jsData['price'])
 #######################BNBUSDT##############################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(BNB_usdt.json(), outfile)
@@ -62,8 +62,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['E21'] = jsData['price']
-    sheet['B24'] = jsData['price']
+    sheet['E21'] = float(jsData['price'])
+    sheet['B24'] = float(jsData['price'])
 
 #######################ETHUSDT##############################
     with open('dataMarket.json', 'w') as outfile:
@@ -72,8 +72,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['F21'] = jsData['price']
-    sheet['B25'] = jsData['price']
+    sheet['F21'] = float(jsData['price'])
+    sheet['B25'] = float(jsData['price'])
 
 #######################RUBUSDT##############################
     with open('dataMarket.json', 'w') as outfile:
@@ -82,8 +82,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['G21'] = jsData['price']
-    sheet['B26'] = jsData['price']
+    sheet['G21'] = float(jsData['price'])
+    sheet['B26'] = float(jsData['price'])
 #######################BTCBNB##############################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(btc_bnb.json(), outfile)
@@ -91,8 +91,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['E22'] = jsData['price']
-    sheet['C24'] = jsData['price']
+    sheet['E22'] =float(jsData['price'])
+    sheet['C24'] = float(jsData['price'])
 #######################BNBBUSD##############################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(bnb_busd.json(), outfile)
@@ -100,8 +100,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['E23'] = jsData['price']
-    sheet['D24'] = jsData['price']
+    sheet['E23'] = float(jsData['price'])
+    sheet['D24'] = float(jsData['price'])
 
 #######################ETHBTC ##############################
     with open('dataMarket.json', 'w') as outfile:
@@ -110,8 +110,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['F22'] = jsData['price']
-    sheet['C25'] = jsData['price']
+    sheet['F22'] = float(jsData['price'])
+    sheet['C25'] = float(jsData['price'])
 
 #######################ETHBUSD ##############################
     with open('dataMarket.json', 'w') as outfile:
@@ -120,8 +120,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['F23'] = jsData['price']
-    sheet['D25'] = jsData['price']
+    sheet['F23'] = float(jsData['price'])
+    sheet['D25'] = float(jsData['price'])
 #######################ETHBNB##############################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(eth_bnb.json(), outfile)
@@ -129,8 +129,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['F24'] = jsData['price']
-    sheet['E25'] = jsData['price']
+    sheet['F24'] = float(jsData['price'])
+    sheet['E25'] = float(jsData['price'])
 
 #######################BTCRUB##############################
     with open('dataMarket.json', 'w') as outfile:
@@ -139,8 +139,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['G22'] = jsData['price']
-    sheet['C26'] = jsData['price']
+    sheet['G22'] = float(jsData['price'])
+    sheet['C26'] = float(jsData['price'])
 
 
 #######################BUSDRUB##############################
@@ -150,8 +150,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['G23'] = jsData['price']
-    sheet['D26'] = jsData['price']
+    sheet['G23'] = float(jsData['price'])
+    sheet['D26'] = float(jsData['price'])
 
 #######################BNBRUB##############################
     with open('dataMarket.json', 'w') as outfile:
@@ -160,8 +160,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['G24'] = jsData['price']
-    sheet['E26'] = jsData['price']
+    sheet['G24'] = float(jsData['price'])
+    sheet['E26'] = float(jsData['price'])
 #######################ETHRUB##############################
     with open('dataMarket.json', 'w') as outfile:
         json.dump(eth_rub.json(), outfile)
@@ -169,8 +169,8 @@ def market_parse():
     with open('dataMarket.json') as file:   
         jsData = json.load(file)
     print(f"market:{jsData['price']} usdt")
-    sheet['G25'] = jsData['price']
-    sheet['F26'] = jsData['price']
+    sheet['G25'] = float(jsData['price'])
+    sheet['F26'] = float(jsData['price'])
 
     book.save("binance.xlsx")
     book.close()

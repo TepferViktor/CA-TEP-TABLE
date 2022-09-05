@@ -59,7 +59,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E3'] = pr['price']
+        sheet['E3'] = float(pr['price'])
         
     """ПРОДАЖА BUSD ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -71,7 +71,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K3'] = pr['price']
+        sheet['K3'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -117,7 +117,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E4'] = pr['price']
+        sheet['E4'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -129,7 +129,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K4'] = pr['price']
+        sheet['K4'] = float(pr['price'])
     book.save("binance.xlsx")
 ########################################################################################################
     """QIWI BUSD"""
@@ -174,7 +174,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E5'] = pr['price']
+        sheet['E5'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -186,7 +186,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K5'] = pr['price']
+        sheet['K5'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -233,7 +233,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E6'] = pr['price']
+        sheet['E6'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -245,7 +245,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K6'] = pr['price']
+        sheet['K6'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -291,7 +291,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E7'] = pr['price']
+        sheet['E7'] =float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -303,7 +303,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K7'] = pr['price']
+        sheet['K7'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -349,7 +349,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E8'] = pr['price']
+        sheet['E8'] =float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -361,7 +361,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K8'] = pr['price']
+        sheet['K8'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -408,7 +408,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E9'] = pr['price']
+        sheet['E9'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -420,7 +420,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K9'] = pr['price']
+        sheet['K9'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -468,7 +468,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E10'] = pr['price']
+        sheet['E10'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -480,7 +480,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K10'] = pr['price']
+        sheet['K10'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -527,7 +527,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E12'] = pr['price']
+        sheet['E12'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -539,7 +539,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K12'] = pr['price']
+        sheet['K12'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -585,7 +585,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E13'] = pr['price']
+        sheet['E13'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -597,7 +597,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K13'] = pr['price']
+        sheet['K13'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -643,7 +643,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['E14'] = pr['price']
+        sheet['E14'] = float(pr['price'])
 
     """ПРОДАЖА BUSD ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -655,7 +655,7 @@ def parse_BUSD():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['K14'] = pr['price']
+        sheet['K14'] = float(pr['price'])
 
     book.save("binance.xlsx")
     book.close()

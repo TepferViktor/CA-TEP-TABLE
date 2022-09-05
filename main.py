@@ -193,7 +193,7 @@ async def password(message: types.Message, state: FSMContext):
 async def Bitcoin_payments(message: types.Message, state: FSMContext):
     passw = message.text
     db.add_passw(message.chat.id,passw) 
-    await bot.send_message(message.chat.id,f'Введите ваше ФИО:')  
+    await bot.send_message(message.chat.id,f'Введите ваше ФИО:')
     await Form.NAME.set()
 
 @dp.message_handler(state = Form.NAME)
@@ -209,7 +209,7 @@ async def Bitcoin_payments(message: types.Message, state: FSMContext):
     keyboard.add(button_1,button_2)
     keyboard.row(button_3)
 
-    await bot.send_message(message.chat.id,f'Ваш аккаунт успешно создан, можете приступать к использованию софта!',reply_markup=keyboard)  
+    await bot.send_message(message.chat.id,f'Ваш аккаунт успешно создан, можете приступать к использованию софта!',reply_markup=keyboard)
 
     db.up_Login(1,message.chat.id)
     await state.finish()

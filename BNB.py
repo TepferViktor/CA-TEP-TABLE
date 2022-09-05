@@ -59,7 +59,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F3'] = pr['price']
+        sheet['F3'] = float(pr['price'])
         
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -71,7 +71,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L3'] = pr['price']
+        sheet['L3'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -117,7 +117,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F4'] = pr['price']
+        sheet['F4'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -129,7 +129,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L4'] = pr['price']
+        sheet['L4'] = float(pr['price'])
     book.save("binance.xlsx")
 ########################################################################################################
     """QIWI BUSD"""
@@ -173,7 +173,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F5'] = pr['price']
+        sheet['F5'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -185,7 +185,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L5'] = pr['price']
+        sheet['L5'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -231,7 +231,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F6'] = pr['price']
+        sheet['F6'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -243,7 +243,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L6'] = pr['price']
+        sheet['L6'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -288,7 +288,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F7'] = pr['price']
+        sheet['F7'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -300,7 +300,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L7'] = pr['price']
+        sheet['L7'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -345,7 +345,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F8'] = pr['price']
+        sheet['F8'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -357,7 +357,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L8'] = pr['price']
+        sheet['L8'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -403,7 +403,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F9'] = pr['price']
+        sheet['F9'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -415,7 +415,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L9'] = pr['price']
+        sheet['L9'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -461,7 +461,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F10'] = pr['price']
+        sheet['F10'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -473,7 +473,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L10'] = pr['price']
+        sheet['L10'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -519,7 +519,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F12'] = pr['price']
+        sheet['F12'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -531,7 +531,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L12'] = pr['price']
+        sheet['L12'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -576,7 +576,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F13'] = pr['price']
+        sheet['F13'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -588,7 +588,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L13'] = pr['price']
+        sheet['L13'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -634,7 +634,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['F14'] = pr['price']
+        sheet['F14'] = float(pr['price'])
 
     """ПРОДАЖА BUSD ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -646,7 +646,7 @@ def parse_BNB():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['L14'] = pr['price']
+        sheet['L14'] = float(pr['price'])
 
     book.save("binance.xlsx")
     book.close()

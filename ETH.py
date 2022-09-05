@@ -59,7 +59,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D3'] = pr['price']
+        sheet['D3'] = float(pr['price'])
         
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -71,7 +71,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J3'] = pr['price']
+        sheet['J3'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -117,7 +117,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D4'] = pr['price']
+        sheet['D4'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -129,7 +129,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J4'] = pr['price']
+        sheet['J4'] = float(pr['price'])
     book.save("binance.xlsx")
 ########################################################################################################
     """QIWI ETH"""
@@ -174,7 +174,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D5'] = pr['price']
+        sheet['D5'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -186,7 +186,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J5'] = pr['price']
+        sheet['J5'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -233,7 +233,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D6'] = pr['price']
+        sheet['D6'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -245,7 +245,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J6'] = pr['price']
+        sheet['J6'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -291,7 +291,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D7'] = pr['price']
+        sheet['D7'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -303,7 +303,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J7'] = pr['price']
+        sheet['J7'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -349,7 +349,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D8'] = pr['price']
+        sheet['D8'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -361,8 +361,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J8'] = pr['price']
-
+        sheet['J8'] = float(pr['price'])
     book.save("binance.xlsx")
 
 ########################################################################################################
@@ -408,7 +407,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D9'] = pr['price']
+        sheet['D9'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -420,7 +419,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J9'] = pr['price']
+        sheet['J9'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -468,7 +467,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D10'] = pr['price']
+        sheet['D10'] = float(pr['price'])
 
     """ПРОДАЖА USDT ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -480,7 +479,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J10'] = pr['price']
+        sheet['J10'] = float(pr['price'])
 
     book.save("binance.xlsx")
 
@@ -527,7 +526,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D12'] = pr['price']
+        sheet['D12'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -539,7 +538,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J12'] = pr['price']
+        sheet['J12'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -585,7 +584,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D13'] = pr['price']
+        sheet['D13'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -597,7 +596,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J13'] = pr['price']
+        sheet['J13'] = float(pr['price'])
 
     book.save("binance.xlsx")
 ########################################################################################################
@@ -643,7 +642,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"buy: {pr['price']} rub")
-        sheet['D14'] = pr['price']
+        sheet['D14'] = float(pr['price'])
 
     """ПРОДАЖА ETH ТИНЬКОФФ"""
     with open('data_sell.json', 'w') as outfile:
@@ -655,7 +654,7 @@ def parse_ETH():
     for price in jsData['data']:
         pr = price['adv']
         print(f"sell: {pr['price']} rub")
-        sheet['J14'] = pr['price']
+        sheet['J14'] = float(pr['price'])
 
     book.save("binance.xlsx")
     book.close()
