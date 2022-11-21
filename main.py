@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from unicodedata import name
 from USDT import parse
 from BTC import parse_BTC
@@ -7,6 +8,7 @@ from BNB import parse_BNB
 from SHIB import parse_SHIB
 from MARKET import market_parse
 from urllib import request
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup as BS
 import config 
@@ -45,7 +47,9 @@ class Form(StatesGroup):
     REGISTRATION = State()
     lg = State()
     ps = State()
-
+    YEAR=State()
+    adm_set=State()
+    life=State()
 def extract_unique_code(text):
     # Extracts the unique_code from the sent /start command.
     return text.split()[1] if len(text.split()) > 1 else None
@@ -53,10 +57,15 @@ def extract_unique_code(text):
 @dp.message_handler(commands='start')
 async def subscribe_from_start(message: types.Message):
 
-    REGIS = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
-    login = types.KeyboardButton(text="LOGIN")
-    registration = types.KeyboardButton(text="REGISTRATION")
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    button_1 = types.KeyboardButton(text="PARSE BINANCE!")
+    button_3 = types.KeyboardButton(text="EXIT")
+    getId=types.KeyboardButton(text="ПОЛУЧИТЬ ID")
+    availeble=types.KeyboardButton(text="ДАТЬ ДОСТУП К ТАБЛИЦЕ НА МЕСЯЦ!")
+    year = types.KeyboardButton(text="ДАТЬ ДОСТУП К ТАБЛИЦЕ НА ГОД!")
+    life = types.KeyboardButton(text="ДАТЬ ПОЖИЗНЕННЫЙ ДОСТУП К ТАБЛИЦЕ!")
     unique_code = extract_unique_code(message.text)
 
     if unique_code:
@@ -69,12 +78,16 @@ async def subscribe_from_start(message: types.Message):
             # отправляем всем новость
             for s in subscriptions:
                 if s[1] == message.chat.id:
+                    if s[6] == 1:
+                        keyboard.add(availeble,year,life)
+                        await bot.send_message(message.chat.id,f'Добропожаловать в меню администрации!', reply_markup=keyboard)
                     if s[5] == 0:
-                        REGIS.add(registration)
-                        await bot.send_message(message.chat.id,f'Пожалуйста, зарегестрируйтесь в аккаунте',reply_markup=REGIS)
+                        keyboard.add(getId)
+                        await bot.send_message(message.chat.id,f'Для продолжения, после оплаты отправьте ваш ID администратору: @MrKeent',reply_markup=keyboard)
                     if s[5] == 1:
-                        REGIS.add(login)
-                        await bot.send_message(message.chat.id,f'Пожалуйста, войдите в аккаунт',reply_markup=REGIS)
+                       # keyboard.add(login)
+                        await bot.send_message(message.chat.id,f'Ваш ID одобрен!',reply_markup=keyboard)
+
 
         else:
         	# если он уже есть, то просто обновляем ему статус подписки
@@ -85,12 +98,13 @@ async def subscribe_from_start(message: types.Message):
             # отправляем всем новость
             for s in subscriptions:
                 if s[1] == message.chat.id:
+                    if s[6] == 1:
+                        keyboard.add(availeble,year,life)
+                        await bot.send_message(message.chat.id,f'Добропожаловать в меню администрации!', reply_markup=keyboard)
                     if s[5] == 0:
-                        REGIS.add(registration)
-                        await bot.send_message(message.chat.id,f'Пожалуйста, зарегестрируйтесь в аккаунте',reply_markup=REGIS)
-                    if s[5] == 1:
-                        REGIS.add(login)
-                        await bot.send_message(message.chat.id,f'Пожалуйста, войдите в аккаунт',reply_markup=REGIS)
+                        keyboard.add(getId)
+                        await bot.send_message(message.chat.id,f'Для продолжения, после оплаты отправьте ваш ID администратору: @MrKeent',reply_markup=keyboard)
+                    
     else:
        #если в ссылке нет id рефера
         db.add_subscriber(message.from_user.id,unique_code)
@@ -100,112 +114,187 @@ async def subscribe_from_start(message: types.Message):
         # отправляем всем новость
         for s in subscriptions:
             if s[1] == message.chat.id:
+                if s[6] == 1:
+                    keyboard.add(availeble,year,life)
+                    await bot.send_message(message.chat.id,f'Добропожаловать в меню администрации!', reply_markup=keyboard)
                 if s[5] == 0:
-                    REGIS.add(registration)
-                    await bot.send_message(message.chat.id,f'Пожалуйста, зарегестрируйтесь в аккаунте',reply_markup=REGIS)
+                    keyboard.add(getId)
+                    await bot.send_message(message.chat.id,f'Для продолжения, после оплаты отправьте ваш ID администратору: @MrKeent',reply_markup=keyboard)
                 if s[5] == 1:
-                    REGIS.add(login)
-                    await bot.send_message(message.chat.id,f'Пожалуйста, войдите в аккаунт',reply_markup=REGIS)
+                  #  keyboard.add(login)
+                    await bot.send_message(message.chat.id,f'Пожалуйста, войдите в аккаунт',reply_markup=keyboard)
 
 @dp.message_handler(content_types=['text'])
 async def subscribe(message):
+    if message.text=="ДАТЬ ДОСТУП К ТАБЛИЦЕ НА МЕСЯЦ!":
+       
+        subscriptions = db.get_subscriptions()
+        for s in subscriptions:
+            if s[1] == message.chat.id:
+                if s[6] == 1:
+                    await Form.LOGIN.set()
+                    await bot.send_message(message.chat.id,f"Введите ID человека которому нужно предоставить доступ:")
+    
+    if message.text=="ДАТЬ ДОСТУП К ТАБЛИЦЕ НА ГОД!":
+       
+        subscriptions = db.get_subscriptions()
+        for s in subscriptions:
+            if s[1] == message.chat.id:
+                if s[6] == 1:
+                    await Form.YEAR.set()
+                    await bot.send_message(message.chat.id,f"Введите ID человека которому нужно предоставить доступ:")
+    
+    if message.text=="ДАТЬ ПОЖИЗНЕННЫЙ ДОСТУП К ТАБЛИЦЕ!":
+        subscriptions = db.get_subscriptions()
+        for s in subscriptions:
+            if s[1] == message.chat.id:
+                if s[6] == 1:
+                    await Form.life.set()
+                    await bot.send_message(message.chat.id,f"Введите ID человека которому нужно предоставить доступ:")
+
     if message.text =="DB data":
         subscriptions = db.get_subscriptions()
         # отправляем всем новость
         for s in subscriptions:
             await bot.send_message(message.chat.id,f'id: {s[1]}\n\nname: {s[3]}\n\nemail: {s[6]}\n\n password: {s[7]}')
-    if message.text =="REGISTRATION":
-        await Form.LOGIN.set()
-        await bot.send_message(message.chat.id,f'Введите LOGIN:')
 
     if message.text =="PARSE BINANCE!": 
         global id
         id = message.chat.id
-        await bot.send_message(message.chat.id,f'Данные парсяться, подождите минутку...')
-        parse()
-        await bot.send_message(id,f'20%...')
-        parse_BTC()    
-        parse_ETH()
-        await bot.send_message(id,f'40%...')
-        parse_BUSD()
-        parse_BNB()
-        await bot.send_message(id,f'60%...')
-        parse_SHIB()
-        await bot.send_message(id,f'80%...')
-        market_parse()
-        await bot.send_message(id,f'100%')
-        await bot.send_message(message.chat.id,f'Данные спарсились, ожидайте отправку файла...')
-        await message.reply_document(open('binance.xlsx', 'rb'))
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+        getId=types.KeyboardButton(text="ПОЛУЧИТЬ ID")
+        keyboard.add(getId)
+        subscriptions = db.get_subscriptions()
+        # отправляем всем новость
+        for s in subscriptions:
+            if s[8] == 0:
+                if s[7] == datetime.now().month:
+                    await bot.send_message(s[1],f"Ваша подписка подошла к концу, для обновления обратитесь к администратору:@MrKeent ",reply_markup=keyboard)  
+                    db.up_Login(0,s[1])
+                else:
+                    await bot.send_message(message.chat.id,f'Данные парсяться, подождите минутку...')
+                    parse()
+                    await bot.send_message(id,f'20%...')
+                    parse_BTC()    
+                    parse_ETH()
+                    await bot.send_message(id,f'40%...')
+                    parse_BUSD()
+                    parse_BNB()
+                    await bot.send_message(id,f'60%...')
+                    parse_SHIB()
+                    await bot.send_message(id,f'80%...')
+                    market_parse()
+                    await bot.send_message(id,f'100%')
+                    await bot.send_message(message.chat.id,f'Данные спарсились, ожидайте отправку файла...')
+                    await message.reply_document(open('binance.xlsx', 'rb'))
+
+            if s[8] ==datetime.now().year:
+                if s[7]==datetime.now().month:
+                    await bot.send_message(s[1],f"Ваша подписка подошла к концу, для обновления обратитесь к администратору:@MrKeent ",reply_markup=keyboard)  
+                    db.up_Login(0,s[1])
+                else:
+                    await bot.send_message(message.chat.id,f'Данные парсяться, подождите минутку...')
+                    parse()
+                    await bot.send_message(id,f'20%...')
+                    parse_BTC()    
+                    parse_ETH()
+                    await bot.send_message(id,f'40%...')
+                    parse_BUSD()
+                    parse_BNB()
+                    await bot.send_message(id,f'60%...')
+                    parse_SHIB()
+                    await bot.send_message(id,f'80%...')
+                    market_parse()
+                    await bot.send_message(id,f'100%')
+                    await bot.send_message(message.chat.id,f'Данные спарсились, ожидайте отправку файла...')
+                    await message.reply_document(open('binance.xlsx', 'rb'))
+
 
     if message.text =="ELSE CRYPTOBIRGE!": 
         await bot.send_message(message.chat.id,f'Данный функционал ещё не реализован')
 
-    if message.text == "LOGIN":
-        await bot.send_message(message.chat.id,f'Введите ваш логин:')
-        await Form.lg.set()
-    
-    if message.text =="EXIT":
-        db.up_Login(0,message.chat.id)
-        REGIS = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        login = types.KeyboardButton(text="LOGIN")
-        registration = types.KeyboardButton(text="REGISTRATION")
-        REGIS.add(login,registration)
-    
-        await bot.send_message(message.chat.id,f'Возвращайтесь скорее, деньги ждать не будут 😉',reply_markup = REGIS)
-
+    if message.text =="ПОЛУЧИТЬ ID":
+        await bot.send_message(message.chat.id,f'Ваш ID: {message.chat.id}')
+    if message.text == "АДМИНКА":
+        if message.chat.id == 685710474:
+            await Form.adm_set.set()
+            await bot.send_message(685710474,f'Введите id человека которому выдать права администратора:')
+       
 @dp.message_handler(state = Form.LOGIN)
-async def register_login(message: types.Message, state: FSMContext):
-    log = message.text
-    db.add_email(message.chat.id,log)  
-    
-    await bot.send_message(message.chat.id,f'Введите пароль:')  
-    await Form.PASSW.set()
-
-@dp.message_handler(state = Form.lg)
-async def login(message: types.Message, state: FSMContext):
-    global lg
-    lg = message.text
-    subscription = db.get_subscriptions()
-    for s in subscription:
-        if s[1] == message.chat.id:       
-            if s[6] == lg:
-                await bot.send_message(message.chat.id,f'Введите ваш пароль: ')
-                await Form.ps.set()
-            else:
-                await bot.send_message(message.chat.id,f'Неверный логин')
-@dp.message_handler(state = Form.ps)
-async def password(message: types.Message, state: FSMContext):
-    global lg
-    ps = message.text
-    subscription = db.get_subscriptions()
-    for s in subscription:
-        if s[1] == message.chat.id:
-            if s[6] == lg:
-                if s[7] == ps:
-
-                        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-
-                        button_1 = types.KeyboardButton(text="PARSE BINANCE!")
-                        button_2 = types.KeyboardButton(text="ELSE CRYPTOBIRGE")
-                        button_3 = types.KeyboardButton(text="EXIT")
-                        keyboard.add(button_1,button_2)
-                        keyboard.row(button_3)
-
-                        await bot.send_message(message.chat.id,f'Вход выполнен успешно!',reply_markup = keyboard)
-
-                        db.up_Login(1,message.chat.id)
-
-                        await state.finish()
-                else:
-                    await bot.send_message(message.chat.id,f'Неверный пароль! Выполните процедуру входа заново!')
-                    await state.finish()
-
-@dp.message_handler(state = Form.PASSW)
 async def Bitcoin_payments(message: types.Message, state: FSMContext):
-    passw = message.text
-    db.add_passw(message.chat.id,passw) 
-    await bot.send_message(message.chat.id,f'Введите ваше ФИО:')
-    await Form.NAME.set()
+    id = message.text
+    date = datetime.now()
+    #await bot.send_message(message.chat.id,f'MONTH: {month.month}')
+    db.update_month_sub(id,date.month+1)
+
+    db.up_Login(1,id) 
+    await bot.send_message(message.chat.id,f'Доступ к таблице для аккаунта {id} предоставлен!')
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    button_1 = types.KeyboardButton(text="PARSE BINANCE!")
+
+    
+    keyboard.add(button_1)
+    await bot.send_message(id,f'Оплата прошла успешно, вам предоставлен доступ к таблице!',reply_markup=keyboard)
+    await state.finish()
+
+
+@dp.message_handler(state = Form.YEAR)
+async def Bitcoin_payments(message: types.Message, state: FSMContext):
+    id = message.text
+    date = datetime.now()
+    #await bot.send_message(message.chat.id,f'MONTH: {month.month}')
+    db.update_month_sub(id,date.month)
+    db.update_year_sub(id,date.year+1)
+    db.up_Login(1,id) 
+    await bot.send_message(message.chat.id,f'Доступ к таблице для аккаунта {id} предоставлен!')
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    button_1 = types.KeyboardButton(text="PARSE BINANCE!")
+
+    
+    keyboard.add(button_1)
+    await bot.send_message(id,f'Оплата прошла успешно, вам предоставлен доступ к таблице!',reply_markup=keyboard)
+    await state.finish()
+
+@dp.message_handler(state = Form.life)
+async def Bitcoin_payments(message: types.Message, state: FSMContext):
+    id = message.text
+    db.update_month_sub(id,0)
+    
+    db.up_Login(1,id) 
+    await bot.send_message(message.chat.id,f'Доступ к таблице для аккаунта {id} предоставлен!')
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    button_1 = types.KeyboardButton(text="PARSE BINANCE!")
+    
+    keyboard.add(button_1)
+
+    await bot.send_message(id,f'Оплата прошла успешно, вам предоставлен ПОЖИЗНЕННЫЙ ДОСТУП к таблице!',reply_markup=keyboard)
+    await state.finish()
+
+
+@dp.message_handler(state = Form.adm_set)
+async def Bitcoin_payments(message: types.Message, state: FSMContext):
+    id = message.text
+    db.update_admin(id,1)
+    db.up_Login(1,id) 
+    await bot.send_message(message.chat.id,f'Доступ к меню администрации для аккаунта {id} предоставлен!')
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    button_1 = types.KeyboardButton(text="PARSE BINANCE!")
+    getId=types.KeyboardButton(text="ПОЛУЧИТЬ ID")
+    availeble=types.KeyboardButton(text="ДАТЬ ДОСТУП К ТАБЛИЦЕ НА МЕСЯЦ!")
+    year = types.KeyboardButton(text="ДАТЬ ДОСТУП К ТАБЛИЦЕ НА ГОД!")
+    life = types.KeyboardButton(text="ДАТЬ ПОЖИЗНЕННЫЙ ДОСТУП К ТАБЛИЦЕ!")
+    
+    keyboard.add(button_1,getId)
+    keyboard.row(availeble,year,life)
+
+    await bot.send_message(id,f'Оплата прошла успешно, вам предоставлен доступ к таблице!',reply_markup=keyboard)
+    await state.finish()
+
 
 @dp.message_handler(state = Form.NAME)
 async def Bitcoin_payments(message: types.Message, state: FSMContext):
@@ -224,6 +313,7 @@ async def Bitcoin_payments(message: types.Message, state: FSMContext):
 
     db.up_Login(1,message.chat.id)
     await state.finish()
+
 
 if __name__ == '__main__':
 	executor.start_polling(dp, skip_updates=True)

@@ -59,7 +59,20 @@ class SQLighter:
 
     def add_passw(self,user_id,PASSWORD):
         with self.connection:
-            return self.cursor.execute("UPDATE `subscriptions` SET `PASSWORD` = ? WHERE `user_id` = ?", (PASSWORD,user_id))             
+            return self.cursor.execute("UPDATE `subscriptions` SET `PASSWORD` = ? WHERE `user_id` = ?", (PASSWORD,user_id))  
+
+    def update_month_sub(self,user_id,PASSWORD):
+        with self.connection:
+            return self.cursor.execute("UPDATE `subscriptions` SET `MONTH` = ? WHERE `user_id` = ?", (PASSWORD,user_id))    
+
+    def update_year_sub(self,user_id,PASSWORD):
+        with self.connection:
+            return self.cursor.execute("UPDATE `subscriptions` SET `YEAR` = ? WHERE `user_id` = ?", (PASSWORD,user_id))   
+
+    def update_admin(self,user_id,PASSWORD):
+        with self.connection:
+            return self.cursor.execute("UPDATE `subscriptions` SET `ADMIN` = ? WHERE `user_id` = ?", (PASSWORD,user_id))    
+
     def close(self):
         """Закрываем соединение с БД"""
         self.connection.close()
