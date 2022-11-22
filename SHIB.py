@@ -22,7 +22,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'Tinkoff',
+        'TinkoffNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -34,7 +34,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'Tinkoff',
+        'TinkoffNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -77,12 +77,12 @@ def parse_SHIB():
     book.save("binance.xlsx")
 
 ########################################################################################################
-    """ROSBANK BNB"""
+    """RosBankNew BNB"""
     data = {
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RosBank',
+        'RosBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -94,7 +94,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RosBank',
+        'RosBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -256,7 +256,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RaiffeisenBankRussia',
+        'RaiffeisenBank',
     ],
     'countries': [],
     'publisherType': None,
@@ -268,7 +268,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RaiffeisenBankRussia',
+        'RaiffeisenBank',
     ],
     'countries': [],
     'publisherType': None,
@@ -314,7 +314,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'PostBankRussia',
+        'PostBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -326,7 +326,7 @@ def parse_SHIB():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'PostBankRussia',
+        'PostBankNew',
     ],
     'countries': [],
     'publisherType': None,

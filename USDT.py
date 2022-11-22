@@ -22,7 +22,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'Tinkoff',
+        'TinkoffNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -34,7 +34,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'Tinkoff',
+        'TinkoffNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -75,12 +75,12 @@ def parse():
     book.save("binance.xlsx")
 
 ########################################################################################################
-    """ROSBANK USDT"""
+    """RosBankNew USDT"""
     data = {
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RosBank',
+        'RosBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -92,7 +92,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RosBank',
+        'RosBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -255,7 +255,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RaiffeisenBankRussia',
+        'RaiffeisenBank',
     ],
     'countries': [],
     'publisherType': None,
@@ -267,7 +267,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RaiffeisenBankRussia',
+        'RaiffeisenBank',
     ],
     'countries': [],
     'publisherType': None,
@@ -313,7 +313,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'PostBankRussia',
+        'PostBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -325,7 +325,7 @@ def parse():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'PostBankRussia',
+        'PostBankNew',
     ],
     'countries': [],
     'publisherType': None,

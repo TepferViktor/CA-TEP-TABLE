@@ -22,7 +22,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'Tinkoff',
+        'TinkoffNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -34,7 +34,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'Tinkoff',
+        'TinkoffNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -75,12 +75,12 @@ def parse_ETH():
 
     book.save("binance.xlsx")
 ########################################################################################################
-    """ROSBANK ETH"""
+    """RosBankNew ETH"""
     data = {
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RosBank',
+        'RosBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -92,7 +92,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RosBank',
+        'RosBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -254,7 +254,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RaiffeisenBankRussia',
+        'RaiffeisenBank',
     ],
     'countries': [],
     'publisherType': None,
@@ -266,7 +266,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'RaiffeisenBankRussia',
+        'RaiffeisenBank',
     ],
     'countries': [],
     'publisherType': None,
@@ -312,7 +312,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'PostBankRussia',
+        'PostBankNew',
     ],
     'countries': [],
     'publisherType': None,
@@ -324,7 +324,7 @@ def parse_ETH():
     'page': 1,
     'rows': 1,
     'payTypes': [
-        'PostBankRussia',
+        'PostBankNew',
     ],
     'countries': [],
     'publisherType': None,
